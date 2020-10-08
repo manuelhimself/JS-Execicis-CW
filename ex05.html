@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script id="passedOrNot">
+        var mark1, mark2, mark3;
+
+        var name = prompt("What's your name?", "");
+
+        mark1 = prompt("Insert first mark:")
+        mark2 = prompt("Insert second mark:")
+        mark3 = prompt("Insert third mark:")
+
+        if (((mark1 + mark2 + mark3) / 3) > 5) {
+            document.write("Congratulations " + name + ", you passed!");
+            document.write("</br>");
+        } else {
+            document.write("Sorry " + name + ", you didn't passed...");
+            document.write("</br>");
+        }
+    </script>
+    <script id="compareEmails">
+        var mail1 = prompt("Introdueix el primer mail:", "");
+        var mail2 = prompt("Introdueix el segon mail:", "");
+
+        if (mail1 != mail2) {
+            document.write("Els emails son distints!");
+            document.write("</br>");
+        }
+    </script>
+    <script id="workingAge">
+        age = prompt("Introdueix la teva edat:", "");
+
+        if (age > 17 && age < 66) {
+            document.write("Estàs en edat de treball!");
+            document.write("</br>");
+        }
+    </script>
+    <script id="isPair">
+        var num = prompt("Introdueix un nombre:", "");
+        if (num % 2 == 0) {
+            document.write("És parell!");
+            document.write("</br>");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
