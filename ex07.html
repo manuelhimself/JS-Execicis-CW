@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script id="printBiggest">
+        var num1, num2, num3;
+
+        num1 = prompt("Insert first number:")
+        num2 = prompt("Insert second number:")
+        num3 = prompt("Insert third number:")
+
+        if (parseInt(num1) > parseInt(num2) && parseInt(num1) > parseInt(num3)) {
+            document.write(num1);
+            document.write("</br>");
+        } else if (parseInt(num2) > parseInt(num1) && parseInt(num2) > parseInt(num3)) {
+            document.write(num2);
+            document.write("</br>");
+        } else {
+            document.write(num3);
+            document.write("</br>");
+        }
+    </script>
+    <script id="printSmallest">
+        var num1, num2, num3;
+
+        num1 = prompt("Insert first number:")
+        num2 = prompt("Insert second number:")
+        num3 = prompt("Insert third number:")
+
+        if (parseInt(num1) < parseInt(num2) && parseInt(num1) < parseInt(num3)) {
+            document.write(num1);
+            document.write("</br>");
+        } else if (parseInt(num2) < parseInt(num1) && parseInt(num2) < parseInt(num3)) {
+            document.write(num2);
+            document.write("</br>");
+        } else {
+            document.write(num3);
+            document.write("</br>");
+        }
+    </script>
+    <script id="nOfDigits">
+        var num = prompt("Introdueix un nombre entre 0 i 999:", "");
+
+        if (parseInt(num) >= 0 && parseInt(num) < 1000) {
+            document.write("Es un nombre de " + num.length + " xifres");
+            document.write("</br>");
+        }
+    </script>
+    <script id="negativeOrPositive">
+        var num = prompt("Introdueix un nombre: ", "");
+
+        if (parseInt(num) > 0) {
+            document.write("Es un nombre potitiu");
+            document.write("</br>");
+        }
+        if (parseInt(num) == 0) {
+            document.write("Es 0");
+            document.write("</br>");
+        } else {
+            document.write("Es un nombre negatiu");
+            document.write("</br>");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
