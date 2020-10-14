@@ -2,31 +2,43 @@
 <html>
 
 <head>
-    <script id="isXmas">
-        var day, month, year;
-
-        day = prompt("Insert day:")
-        month = prompt("Insert month:")
-        year = prompt("Insert year:")
-
-        if (parseInt(day) == 25 && month.toLocaleLowerCase == "december") {
-            document.write("It's Xmas!!");
-            document.write("</br>");
-        }
-    </script>
-    <script id="areAllLessThanTen">
+    <script id="printBiggest">
         var num1, num2, num3;
 
         num1 = prompt("Insert first number:")
         num2 = prompt("Insert second number:")
         num3 = prompt("Insert third number:")
 
-        if (parseInt(num1) < 10 && parseInt(num2) < 10 && parseInt(num3) < 10) {
-            document.write("All the numbers are less than 10");
+        if (parseInt(num1) > parseInt(num2) && parseInt(num1) > parseInt(num3)) {
+            document.write(num1);
+            document.write("</br>");
+        } else if (parseInt(num2) > parseInt(num1) && parseInt(num2) > parseInt(num3)) {
+            document.write(num2);
+            document.write("</br>");
+        } else {
+            document.write(num3);
             document.write("</br>");
         }
     </script>
-    <script id="">
+    <script id="printSmallest">
+        var num1, num2, num3;
+
+        num1 = prompt("Insert first number:")
+        num2 = prompt("Insert second number:")
+        num3 = prompt("Insert third number:")
+
+        if (parseInt(num1) < parseInt(num2) && parseInt(num1) < parseInt(num3)) {
+            document.write(num1);
+            document.write("</br>");
+        } else if (parseInt(num2) < parseInt(num1) && parseInt(num2) < parseInt(num3)) {
+            document.write(num2);
+            document.write("</br>");
+        } else {
+            document.write(num3);
+            document.write("</br>");
+        }
+    </script>
+    <script id="nOfDigits">
         var num = prompt("Introdueix un nombre entre 0 i 999:", "");
 
         if (parseInt(num) >= 0 && parseInt(num) < 1000) {
@@ -46,18 +58,6 @@
             document.write("</br>");
         } else {
             document.write("Es un nombre negatiu");
-            document.write("</br>");
-        }
-    </script>
-    <script id="someAreAllLessThanTen">
-        var num1, num2, num3;
-
-        num1 = prompt("Insert first number:")
-        num2 = prompt("Insert second number:")
-        num3 = prompt("Insert third number:")
-
-        if (parseInt(num1) < 10 || parseInt(num2) < 10 || parseInt(num3) < 10) {
-            document.write("Some numbers are less than 10");
             document.write("</br>");
         }
     </script>
