@@ -2,74 +2,124 @@
 <html>
 
 <head>
-    <script id="isXmas">
+    <script id="translator">
         var day, month, year;
 
-        day = prompt("Insert day:")
-        month = prompt("Insert month:")
-        year = prompt("Insert year:")
+        wrd = prompt("Insert house, table, dog or cat:")
 
-        if (parseInt(day) == 25 && month.toLowerCase == "december") {
-            document.write("It's Xmas!!");
+        if (wrd.toLowerCase == "house") {
+            document.write("Casa");
+            document.write("</br>");
+        } else if (wrd.toLowerCase == "table") {
+            document.write("Taula");
+            document.write("</br>");
+        } else if (wrd.toLowerCase == "dog") {
+            document.write("Ca");
+            document.write("</br>");
+        } else if (wrd.toLowerCase == "cat") {
+            document.write("Moix");
             document.write("</br>");
         }
     </script>
-    <script id="areAllLessThanTen">
-        var num1, num2, num3;
+    <script id="monthName">
+        var num1;
 
-        num1 = prompt("Insert first number:")
-        num2 = prompt("Insert second number:")
-        num3 = prompt("Insert third number:")
-
-        if (parseInt(num1) < 10 && parseInt(num2) < 10 && parseInt(num3) < 10) {
-            document.write("All the numbers are less than 10");
-            document.write("</br>");
+        num = prompt("Insert number from 1 to 12:")
+        if (parseInt(num) > 0 && parseInt(num) < 13) {
+            if (parseInt(num1) = 1) {
+                document.write("January");
+                document.write("</br>");
+            } else if (parseInt(num1) = 2) {
+                document.write("February");
+                document.write("</br>");
+            } else if (parseInt(num1) = 3) {
+                document.write("March");
+                document.write("</br>");
+            } else if (parseInt(num1) = 4) {
+                document.write("April");
+                document.write("</br>");
+            } else if (parseInt(num1) = 5) {
+                document.write("May");
+                document.write("</br>");
+            } else if (parseInt(num1) = 6) {
+                document.write("June");
+                document.write("</br>");
+            } else if (parseInt(num1) = 7) {
+                document.write("July");
+                document.write("</br>");
+            } else if (parseInt(num1) = 8) {
+                document.write("August");
+                document.write("</br>");
+            } else if (parseInt(num1) = 9) {
+                document.write("Septeber");
+                document.write("</br>");
+            } else if (parseInt(num1) = 10) {
+                document.write("October");
+                document.write("</br>");
+            } else if (parseInt(num1) = 11) {
+                document.write("November");
+                document.write("</br>");
+            } else if (parseInt(num1) = 12) {
+                document.write("December");
+                document.write("</br>");
+            }
         }
     </script>
-    <script id="quadrant">
-        var x = prompt("Insert X cordinate:", "");
-        var y = prompt("Insert Y cordinate:", "");
+    <script id="nOfDays">
+        var num1;
 
-        if (parseInt(x) > 0 && parseInt(y) > 0) {
-            document.write("First Quadrant");
-            document.write("</br>");
-        } else if (parseInt(x) < 0 && parseInt(y) > 0) {
-            document.write("Second Quadrant");
-            document.write("</br>");
-        } else if (parseInt(x) < 0 && parseInt(y) < 0) {
-            document.write("Third Quadrant");
-            document.write("</br>");
-        } else if (parseInt(x) > 0 && parseInt(y) < 0) {
-            document.write("Forth Quadrant");
-            document.write("</br>");
+        num = prompt("Insert number from 1 to 12:")
+        if (parseInt(num) > 0 && parseInt(num) < 13) {
+            if (parseInt(num1) = 1) {
+                document.write("31 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 2) {
+                document.write("28 or 29 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 3) {
+                document.write("31 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 4) {
+                document.write("30 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 5) {
+                document.write("31 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 6) {
+                document.write("30 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 7) {
+                document.write("31 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 8) {
+                document.write("31 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 9) {
+                document.write("30 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 10) {
+                document.write("31 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 11) {
+                document.write("30 days");
+                document.write("</br>");
+            } else if (parseInt(num1) = 12) {
+                document.write("31 days");
+                document.write("</br>");
+            }
         }
     </script>
-    <script id="negativeOrPositive">
-        var anys = prompt("Introdueix els anys a lempresa: ", "");
-        var salary = prompt("Introdueix el salari: ", "");
+    <script id="vowelOrConsonant">
+        var letter = prompt("Introdueix una lletr: ", "");
 
-        if (anys >= 20 && salary < 500) {
-            document.write("El salari és " + salary * 1.2);
-            document.write("</br>");
-        } else if (anys >= 10 && salary < 500) {
-            document.write("El salari és " + salary * 1.2);
+        if (letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u") {
+            document.write("Vowel");
             document.write("</br>");
         } else {
-            document.write("El salari és " + salary);
+            document.write("Consonant");
             document.write("</br>");
         }
     </script>
-    <script id="someAreAllLessThanTen">
-        var num1, num2, num3;
-
-        num1 = prompt("Insert first number:")
-        num2 = prompt("Insert second number:")
-        num3 = prompt("Insert third number:")
-
-        if (parseInt(num1) < 10 || parseInt(num2) < 10 || parseInt(num3) < 10) {
-            document.write("Some numbers are less than 10");
-            document.write("</br>");
-        }
     </script>
 </head>
 
