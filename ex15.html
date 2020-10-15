@@ -22,7 +22,7 @@
 
 <body>
     <script>
-        date = new Date(prompt("Insert year:"), prompt("Insert month:"), prompt("Insert day:"));
+        date = new Date(prompt("Insert year:"), prompt("Insert month:") - 1, prompt("Insert day:"));
 
         document.write("We are in the " + findTerm(date) + " term of the year");
     </script>
