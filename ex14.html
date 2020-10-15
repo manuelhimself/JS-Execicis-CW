@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function addition() {
+            this.loadValue1 = loadValue1;
+            this.loadValue2 = loadValue2;
+            this.result = result;
+
+            function loadValue1(value1) {
+                this.value1 = parseInt(value1);
+            }
+
+            function loadValue2(value2) {
+                this.value2 = parseInt(value2);
+            }
+
+            function result() {
+                document.write("Result: " + (this.value1 + this.value2) + "</br>");
+            }
+        }
+
+        function person(name, age) {
+            this.name = name;
+            this.age = parseInt(age);
+        }
+
+        function company(name, topAgeW) {
+            this.name = name;
+            this.topAgeW = parseInt(topAgeW);
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        var add = new addition();
+        add.loadValue1(prompt("Insert first value:"));
+        add.loadValue2(prompt("Insert second value:"));
+        add.result();
+        var person1 = new person(prompt("Insert name:"), prompt("Insert age:"));
+        var person2 = new person(prompt("Insert name:"), prompt("Insert age:"));
+        var company = new company(prompt("Insert name:"), prompt("Insert top age workers:"));
+        document.write(person1.name + "</br>");
+        document.write(person2.name + "</br>");
+        document.write(company.name + "</br>");
+    </script>
+</body>
+
+</html>
