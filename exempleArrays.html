@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+    </script>
+</head>
+
+<body>
+    INPUT:<input type="text" id="item" />
+    <button id="b1" onclick="pushArray()">PUSH</button>
+    <button id="b1" onclick="popArray()">POP</button>
+    <button id="b1" onclick="shiftArray()">SHIFT</button>
+    <button id="b1" onclick="unshiftArray()">UNSHIFT</button>
+    <button id="b1" onclick="sortArray()">SORT</button>
+    <button id="b1" onclick="indexOfArray()">INDEX OF</button>
+    <p id="content"></p>
+    <script>
+        var meuArray = new Array();
+
+        function printArray() {
+            var txt = "";
+            for (var i = 0; i < meuArray.length; i++) {
+                txt += meuArray[i] + " ";
+            }
+            document.getElementById("content").innerHTML = txt;
+        }
+
+        function pushArray() {
+            var x = document.getElementById("item").value;
+            meuArray.push(x);
+            printArray();
+        }
+
+        function popArray() {
+            var x = document.getElementById("item").value;
+            meuArray.pop(x);
+            printArray();
+        }
+
+        function shiftArray() {
+            var x = document.getElementById("item").value;
+            meuArray.shift(x);
+            printArray();
+        }
+
+        function unshiftArray() {
+            var x = document.getElementById("item").value;
+            meuArray.unshift(x);
+            printArray();
+        }
+
+        function sortArray() {
+            var x = document.getElementById("item").value;
+            meuArray.sort(x);
+            printArray();
+        }
+
+        function indexOfArray() {
+            var x = document.getElementById("item").value;
+            meuArray.push(x);
+            printArray();
+        }
+    </script>
+</body>
+
+</html>
