@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function sqrt(num) {
+            document.write("<p>The square root is " + Math.sqrt(num) + "</p>");
+        }
+
+        function getBiggest(num1, num2) {
+            if (num1 > num2) {
+                document.write("<p>Number " + num1 + " is bigger</p>");
+            } else {
+                document.write("<p>Number " + num2 + " is bigger</p>");
+            }
+        }
+
+        function printFullName(nom, llinatge) {
+            document.write("<p>" + nom + " " + llinatge + "</p>");
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="sqrt">
+    <input type="button" onclick="sqrt(parseInt(document.getElementById('sqrt').value))" value="Square Root">
+
+    <input type="text" id="biggest1">
+    <input type="text" id="biggest2">
+    <input type="button" onclick="getBiggest(parseInt(document.getElementById('biggest1').value), parseInt(document.getElementById('biggest2').value))" value="Get Biggest">
+
+    <input type="text" id="nom">
+    <input type="text" id="llinatge">
+    <input type="button" onclick="printFullName(document.getElementById('nom'), document.getElementById('llinatge'))" value="Get full name">
+</body>
+
+</html>
