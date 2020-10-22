@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function enterTillEnd() {
+            var str = prompt("Enter a name:");
+            var numNames;
+
+            while (str.toLowerCase != "end") {
+                numNames++;
+                str = prompt("Enter a name:");
+            }
+
+            return numNames;
+        }
+
+        function findSubstring(str, subStr) {
+
+            if (str.includes(subStr)) {
+                str.replace(subStr, "");
+            }
+            return str;
+        }
+
+        function isPalindrome(str) {
+            var splitStr = str.split("");
+
+            var reverseArray = splitStr.reverse();
+
+            var joinArray = reverseArray.join("");
+
+            if (joinArray == str) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function isEmail(str) {
+            if (str.includes("@")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function multi(str) {
+            document.write(str.substring(0, count(str) / 2));
+            document.write("</br>");
+
+            document.write(str.substring(count(str) - 2, count(str) - 1));
+            document.write("</br>");
+
+            document.write(str.split("").reverse().join(""));
+            document.write("</br>");
+
+            document.write(str.split("").join(" "));
+            document.write("</br>");
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        document.write(enterTillEnd());
+        document.write("</br>");
+
+        document.write(findSubstring(prompt("Enter a string "), prompt("Enter a substring")));
+        document.write("</br>");
+
+        document.write(isPalindrome(prompt("Insert a string and I'll tell you if it's palindrome")));
+        document.write("</br>");
+
+        document.write(isEmail(prompt("Insert a string and I'll tell you if it's an email")));
+        document.write("</br>");
+
+        document.write(multi(prompt("Insert a string")))
+    </script>
+</body>
+
+</html>
