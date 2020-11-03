@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function compPasswd(pswd1, pswd2) {
+            var paragraph = document.getElementById("result");
+
+            if (pswd1 === pswd2) {
+                paragraph.textContent += "Yes";
+            } else {
+                paragraph.textContent += "No";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <p id="result">Are this passwords equal? </p>
+
+
+    <input type="password" id="pass1">
+    <input type="password" id="pass2">
+    <input type="button" onclick="compPasswd(document.getElementById('pass1').value, document.getElementById('pass2').value)" value="Are equal?">
+</body>
+
+</html>
