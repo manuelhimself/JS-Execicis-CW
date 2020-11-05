@@ -4,6 +4,12 @@
 <head>
     <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
     <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
         .red-cell {
             background: #F00;
         }
@@ -14,22 +20,31 @@
     </style>
     <script>
         $(function() {
-            $('#td1').click(function() {
-                $(this).toggleClass("red-cell");
+            $('.r1').click(function() {
+                $('.r1').toggleClass("red-cell");
             });
         });
 
         $(function() {
-            $('#td2').click(function() {
-                $(this).toggleClass("green-cell");
+            $('.r2').click(function() {
+                $('.r2').toggleClass("green-cell");
             });
         });
     </script>
 </head>
 
 <body>
-    <tr id="tr1" onclick="function()">Click me to change color</tr>
-    <tr id="tr2" onclick="function()">Click me to change color</tr>
+    <table>
+        <tr>
+            <th class="r1">Click me to change color</th>
+            <th class="r1">Click me to change color</th>
+        </tr>
+        <tr>
+            <td class="r2">Click me to change color</td>
+            <td class="r2">Click me to change color</td>
+        </tr>
+    </table>
+
 </body>
 
 </html>

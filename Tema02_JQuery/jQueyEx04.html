@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        .red-cell {
+            background: #F00;
+        }
+    </style>
+    <script>
+        $(function() {
+            $('.colour').click(function() {
+                $(this).toggleClass("red-cell");
+            });
+        });
+
+        $(function() {
+            $('.size').click(function() {
+                var text_input = $(this);
+                text_input.css("font-size", "40px");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <table class="colour">
+        <tr>
+            <th class="r1">Click me to change color</th>
+            <th class="r1">Click me to change color</th>
+        </tr>
+        <tr>
+            <td class="r2">Click me to change color</td>
+            <td class="r2">Click me to change color</td>
+        </tr>
+        <tr>
+            <td class="r3">Click me to change color</td>
+            <td class="r3">Click me to change color</td>
+        </tr>
+    </table>
+
+    <table class="size">
+        <tr>
+            <th class="r1">Click me to size</th>
+            <th class="r1">Click me to size</th>
+        </tr>
+        <tr>
+            <td class="r2">Click me to size</td>
+            <td class="r2">Click me to size</td>
+        </tr>
+        <tr>
+            <td class="r3">Click me to size</td>
+            <td class="r3">Click me to size</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

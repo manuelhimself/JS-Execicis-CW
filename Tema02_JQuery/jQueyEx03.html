@@ -4,15 +4,17 @@
 <head>
     <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
     <script>
-        $("#1").click(function() {
-            $("#1").hide();
+        $(document).ready(function() {
+            $("li").click(function() {
+                $(this).hide();
+            });
         });
     </script>
 </head>
 
 <body>
     <ul>
-        <li id="#1" onclick="function()">One</li>
+        <li id="#1">One</li>
         <li id="#2">Two</li>
         <li id="#3">Three</li>
         <li id="#4">Four</li>
