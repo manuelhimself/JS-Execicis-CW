@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+        
+        .red-cell {
+            background: #F00;
+        }
+        
+        .green-cell {
+            background: greenyellow;
+        }
+    </style>
+    <script>
+        $(function() {
+            $('#tbodyCol').click(function() {
+                $('tbody').toggleClass("red-cell");
+            });
+        });
+        $(function() {
+            $('#theadCol').click(function() {
+                $('thead').toggleClass("green-cell");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <td>OFF</td>
+            <td>OFF</td>
+            <td>OFF</td>
+        </thead>
+        <tbody>
+            <td>OFF</td>
+            <td>OFF</td>
+            <td>OFF</td>
+        </tbody>
+    </table>
+    </br>
+
+    <button id="theadCol">Toggle thead color</button>
+    <button id="tbodyCol">Toggle tbody color</button>
+
+</body>
+
+</html>

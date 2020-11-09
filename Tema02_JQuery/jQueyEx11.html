@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        $(function() {
+            $('td').on({
+                mouseenter: function() {
+                    $(this).css("background-color", "greenyellow");
+                },
+
+                mouseleave: function() {
+                    $(this).css("background-color", "white");
+                },
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <td>OFF</td>
+            <td>OFF</td>
+        </thead>
+        <tbody>
+            <td>OFF</td>
+            <td>OFF</td>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

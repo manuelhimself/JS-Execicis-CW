@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        $(function() {
+            $('#peugeot').click(function() {
+                $("a").attr("href", "https://i.pinimg.com/originals/1f/5e/89/1f5e89b6b9c2f30e4152ba52bcfa9a1f.jpg");
+            });
+        });
+        $(function() {
+            $('#audi').click(function() {
+                $("a").attr("href", "https://img.redbull.com/images/c_crop,x_0,y_299,h_1708,w_3039/c_fill,w_1040,h_650/q_auto,f_auto/redbullcom/2015/08/19/1331772435696_4/wrc-legend-walter-rohrl");
+            });
+        });
+        $(function() {
+            $('#lancia').click(function() {
+                $("a").attr("href", "https://upload.wikimedia.org/wikipedia/commons/d/d6/LanciaRally037.jpg");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <a href="">Link to a car image</a>
+    <br>
+    <button id="peugeot">Show Peugeot</button><button id="lancia">Show Lancia</button><button id="audi">Show Audi</button>
+
+</body>
+
+</html>

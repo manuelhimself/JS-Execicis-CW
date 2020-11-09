@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(function() {
+            $('#showBody').click(function() {
+                alert($("body").text());
+            });
+        });
+        $(function() {
+            $('#showHead').click(function() {
+                alert($("head").text());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="showHead">Show head</button>
+    <button id="showBody">Show body</button>
+
+</body>
+
+</html>
