@@ -1,6 +1,6 @@
 <?php
-$num1=$_REQUEST['num1'];
-$num2=$_REQUEST['num2'];
+$num1=intVal($_REQUEST['num1']);
+$num2=intVal($_REQUEST['num2']);
 $op=$_REQUEST['op'];
 
 if($op == "add"){
