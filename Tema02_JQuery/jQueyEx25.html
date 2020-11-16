@@ -39,18 +39,18 @@
         function pressAdd() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $("#result").get("page1.php", {
+            $.get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "add"
-            }, dataArrived).;
+            }, dataArrived);
             return false;
         }
 
         function pressSub() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $("#result").get("page1.php", {
+            $.get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "sub"
@@ -61,7 +61,7 @@
         function pressMult() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $("#result").get("page1.php", {
+            $.get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "mult"
@@ -72,7 +72,7 @@
         function pressDiv() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $("#result").get("page1.php", {
+            $.get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "div"
@@ -83,7 +83,7 @@
 
 
         function dataArrived(data) {
-            alert(data);
+            $("#result").append(data);
         }
     </script>
 
