@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+
+</head>
+
+<body>
+    <p id="pos"></p>
+    <button onclick="loadFile1()">Load file1</button>
+    <button onclick="loadFile2()">Load file2</button>
+    <script>
+        function loadFile1() {
+            $("#pos").load("file1.txt");
+        }
+
+        function loadFile2() {
+            $("#pos").load("file2.txt");
+        }
+    </script>
+
+</body>
+
+</html>
