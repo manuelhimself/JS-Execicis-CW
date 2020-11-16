@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <div id="result"></div>
     <form action="ex25.php" method="post" id="myForm"></form>
     <input type="text" id="num1">
     <input type="text" id="num1">
@@ -38,18 +39,18 @@
         function pressAdd() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $.get("page1.php", {
+            $("#result").get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "add"
-            }, dataArrived);
+            }, dataArrived).;
             return false;
         }
 
         function pressSub() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $.get("page1.php", {
+            $("#result").get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "sub"
@@ -60,7 +61,7 @@
         function pressMult() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $.get("page1.php", {
+            $("#result").get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "mult"
@@ -71,7 +72,7 @@
         function pressDiv() {
             var v1 = $("#num1").attr("value");
             var v2 = $("#num2").attr("value");
-            $.get("page1.php", {
+            $("#result").get("page1.php", {
                 num1: v1,
                 num2: v2,
                 op: "div"
