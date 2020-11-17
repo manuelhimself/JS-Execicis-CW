@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+
+</head>
+
+<body>
+    <div id="result"></div>
+    Poble: <select id="city" name="cars">
+        <option value="manacor">Manacor</option>
+        <option value="palma">Palma</option>
+        <option value="inca">Inca</option>
+        <option value="soller">Soller</option>
+    </select>
+    <input type="button" value="list" id="list">
+    <script>
+        var x;
+        x = $(document);
+        x.ready(initEvents);
+
+        function initEvents() {
+            var a;
+            a = $("#list");
+            a.click(list);
+
+        }
+
+        function list() {
+            var selectedCity = $(this).children("option:selected").val();
+            $.getJSON("ex26.php", {
+                city: selectedCity,
+                file:
+            }, dataArrived);
+        }
+
+        function dataArrived(data) {
+            $("#result").html(data);
+        }
+    </script>
+
+</body>
+
+</html>
