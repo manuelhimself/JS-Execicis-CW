@@ -30,8 +30,7 @@
         function list() {
             var selectedCity = $(this).children("option:selected").val();
             $.getJSON("ex26.php", {
-                city: selectedCity,
-                file:
+                city: selectedCity
             }, dataArrived);
         }
 
