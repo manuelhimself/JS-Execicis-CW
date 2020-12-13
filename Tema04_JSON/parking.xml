@@ -1,0 +1,76 @@
+<?xml version="1.0" ecncoding="UTF-8"?>
+<parking>
+    <cotxe>
+        <matricula>8461FRT</matricula>
+        <marca>Seat</marca>
+        <color>groc</color>
+        <carrosseria>berlina</carrosseria>
+        <aparcament>
+            <id>1</id>
+            <tsEntrada>15-NOV-2020 15:55:43</tsEntrada>
+            <tsSortida>15-NOV-2020 17:33:33</tsSortida>
+            <preu>6</preu>
+            <plaza>L9</plaza>
+        </aparcament>
+        <aparcament>
+            <id>2</id>
+            <tsEntrada>20-NOV-2020 10:55:03</tsEntrada>
+            <tsSortida>20-NOV-2020 12:32:22</tsSortida>
+            <preu>3</preu>
+            <plaza>L7</plaza>
+        </aparcament>
+    </cotxe>
+    <cotxe>
+        <matricula>8521GRD</matricula>
+        <marca>Ferrari</marca>
+        <color>vermell</color>
+        <carrosseria>superesportiu</carrosseria>
+        <aparcament>
+            <id>3</id>
+            <tsEntrada>13-NOV-2020 13:09:23</tsEntrada>
+            <tsSortida>13-NOV-2020 16:44:55</tsSortida>
+            <preu>8</preu>
+            <plaza>A3</plaza>
+        </aparcament>
+    </cotxe>
+    <cotxe>
+        <matricula>3451JRT</matricula>
+        <marca>Land Rover</marca>
+        <color>gris</color>
+        <carrosseria>suv</carrosseria>
+        <aparcament>
+            <id>4</id>
+            <tsEntrada>30-OCT-2020 15:33:43</tsEntrada>
+            <tsSortida>30-OCT-2020 16:05:14</tsSortida>
+            <preu>1.5</preu>
+            <plaza>J6</plaza>
+        </aparcament>
+        <aparcament>
+            <id>5</id>
+            <tsEntrada>04-NOV-2020 16:21:44</tsEntrada>
+            <tsSortida>04-NOV-2020 16:55:41</tsSortida>
+            <preu>0.5</preu>
+            <plaza>C3</plaza>
+        </aparcament>
+        <aparcament>
+            <id>6</id>
+            <tsEntrada>10-NOV-2020 18:25:25</tsEntrada>
+            <tsSortida>10-NOV-2020 19:55:41</tsSortida>
+            <preu>3</preu>
+            <plaza>D3</plaza>
+        </aparcament>
+    </cotxe>
+    <cotxe>
+        <matricula>3321KBB</matricula>
+        <marca>Ford</marca>
+        <color>blau</color>
+        <carrosseria>coupe</carrosseria>
+        <aparcament>
+            <id>4</id>
+            <tsEntrada>11-NOV-2020 19:31:32</tsEntrada>
+            <tsSortida>11-NOV-2020 20:22:44</tsSortida>
+            <preu>2.5</preu>
+            <plaza>Y4</plaza>
+        </aparcament>
+    </cotxe>
+</parking>

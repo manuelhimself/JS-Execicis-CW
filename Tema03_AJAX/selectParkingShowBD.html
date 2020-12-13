@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Select (PHP)</h2>
+    <select id="hint" name="hint"></div>
+
+    <script>
+        
+            var xhttp = xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("hint").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "cotxesHintBD.php", true);
+            xhttp.send();
+    </script>
+
+</body>
+
+</html>

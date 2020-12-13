@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Carrousel</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+</head>
+
+<body>
+    <title>Modal JSON</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>MODAL JSON</h1>
+            <form>
+                <div class="form-group">
+                    <select id="meuSelect" class="form-control">
+          <option value="0">Selecciona</option>
+        </select>
+                </div>
+            </form>
+            <h4>Contingut del fitxer JSON (C):</h4>
+            <p id="demo"></p>
+
+            <h4>Contingut del fitxer JSON (Carroceria):</h4>
+            <p id="demo2"></p>
+
+            <!-- container -->
+        </div>
+        <!-- Modal Edita Model -->
+        <div id="modalEdita" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <!-- header modal -->
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edita Aparcament</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                    </div>
+
+
+                    <!-- body modal -->
+
+
+                    <div class="modal-body">
+                        <form role="form" name="formEdita" action="edita.php" method="get">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Id:</label>
+                                    <input id="idc" type="text" class="form-control" placeholder="Id Aparcament" readonly="readonly" name="id">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Nom:</label>
+                                    <input id="plazac" type="text" class="form-control" placeholder="Plaça" name="plaza">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <!-- footer modal -->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                        <button id="bSubmit" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+
+                function loadAparcament(idAparcament) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            $("#demo2").html(this.responseText);
+                            var item = JSON.parse(this.responseText)[0];
+
+                            $("#idc").val(item.id);
+                            $("#nomc").val(item.plaza);
+
+                            $("#modalEdita").modal();
+                        }
+                    };
+                    xhttp.open("GET", "aparcament.php?id=" + idAparcament, true);
+                    xhttp.send();
+                }
+
+                function loadAparcaments() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            $("#demo").html(this.responseText);
+                            var items = JSON.parse(this.responseText);
+                            for (i in items) {
+                                var id = items[i].id;
+                                var nom = items[i].plaza;
+                                var item = $("<option/>", {
+                                    value: id,
+                                    text: nom
+                                });
+                                $("#meuSelect").append(item);
+                            }
+                        }
+                    };
+                    xhttp.open("GET", "aparcaments.php", true);
+                    xhttp.send();
+                }
+
+                loadAparcaments();
+
+                $("#meuSelect").change(function() {
+                    var id = $(this).val();
+                    loadAparcament(id);
+                });
+
+                $('#bSubmit').click(function() {
+                    $('form[name="formEdita"]').submit();
+                });
+
+            });
+        </script>
+    </body>
+
+</html>

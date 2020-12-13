@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <style>
+        input {
+            color: blue;
+        }
+    </style>
+    <script>
+        $(document).ready(initEvents);
+
+        function initEvents() {
+            $("input").focus(function(event) {
+                $(this).css("color", " red");
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" value="txt">
+        <input type="text" value="txt">
+    </form>
+
+</body>
+
+</html>

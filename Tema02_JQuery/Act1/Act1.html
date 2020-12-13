@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <script src="producte.js"></script>
+    <script src="carreto.js"></script>
+    <script>
+        $(document).ready();
+        let categories = ["ELECTRONICS", "HOME", "FOOD", "HEALTH", "SPORTS"];
+
+        /*function writeOptions() {
+            var options = "";
+
+            for (var i = 0; i < categories.length; i++) {
+                options += '<option value="' + categories[i] + '">' + categories[i] + '</option>';
+            }
+            return options;
+        }
+
+        function writeList() {
+            var list = "hola";
+
+            for (var i = 0; i < categories.length; i++) {
+                list += '<li id="' + categories[i] + '">' + categories[i] + '</li>';
+            }
+            return list;
+        }
+
+
+        $("#categories").append(writeOptions());
+        $("#ulCat").append(writeList());
+        */
+
+        for (var i = 0; i < categories.length; i++) {
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Categories</h1><br> CATEGORIA:
+    <input type="text">
+    <button id="add">ADD</button>
+    <select id="categories">
+		
+	</select>
+    <button id="sv">SAVE</button>
+    <button id="del">DELETE</button>
+    <div id="list">
+        <ul id="ulCat">
+
+        </ul>
+    </div>
+    <script>
+    </script>
+</body>
+
+</html>

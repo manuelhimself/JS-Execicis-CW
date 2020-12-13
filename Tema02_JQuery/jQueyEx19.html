@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+
+    <script>
+        $(document).ready(initEvents);
+
+        function initEvents() {
+            if ($("#hide").css("hidden") == 'true') {
+                $("#hide").click(function(event) {
+                    $('#formulari').show('Slow');
+                });
+            } else {
+                $("#hide").click(function(event) {
+                    $('#formulari').hide('Slow');
+                });
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="hide">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nam repudiandae maiores a omnis reprehenderit velit perspiciatis beatae animi, accusamus sequi, nisi quae, amet corrupti? Dolore dignissimos possimus quibusdam debitis?</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus magnam voluptate, consequuntur corporis iusto eum praesentium quae fugiat perspiciatis sapiente ex culpa possimus illo sed, quibusdam consequatur nemo, facere ducimus.</p>
+    </div>
+
+</body>
+
+</html>
