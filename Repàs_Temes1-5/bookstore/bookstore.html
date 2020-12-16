@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+    <script src="llibre.js"></script>
+    <style>
+        td,
+        th {
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        var arrLlibres = [];
+
+        $(document).ready(function() {
+            $("#b1").click(function() {
+                var t = $("#title").val();
+                var p = $("#pages").val();
+                var c = $("#cats").val();
+                var col = $("#col").val();
+                var row = $("#row").val();
+
+                var ocupat = false;
+
+                for (var i = 0; i < arrLlibres.length; i++) {
+                    if (arrLlibres[i].col == col && arrLlibres[i].row == row) {
+                        ocupat = true;
+                        break;
+                    }
+                }
+
+                if (!ocupat) {
+                    l = new llibre(t, p, c, col, row);
+                    arrLlibres.push(l);
+                } else {
+                    alert("Posició ocupada");
+                }
+            });
+
+            $("#b2").click(function() {
+                var col = $("#col").val();
+                var row = $("#row").val();
+                for (var i = 0; i < arrLlibres.length; i++) {
+                    if (arrLlibres[i].col == col && arrLlibres[i].row == row) {
+                        arrLlibres.splice(i, 1);
+                        break;
+                    }
+                }
+            });
+
+            $("#b3").click(function() {
+                var myOl = $("<ol/>");
+                for (var i = 0; i < arrLlibres.length; i++) {
+                    var l = arrLlibres[i];
+                    info = l.title + " " + l.numPages + " " + l.category;
+                    var newLi = $("<li/>", {
+                        text: info
+                    });
+                    myOl.append(newLi);
+                }
+                $("#printer").html(myOl);
+            });
+
+            $("#b4").click(function() {
+                creaTaula();
+            });
+
+            $("#b5").click(function() {
+                alert("Hi ha " + arrLlibres.length + " llibres");
+            });
+
+            function getLlibre(col, row) {
+                var returnVal = false;
+                for (var i = 0; i < arrLlibres.length; i++) {
+                    var l = arrLlibres[i];
+                    if (l.col == col && l.row == row) {
+                        returnVal = l;
+                        break;
+                    }
+                }
+                return returnVal;
+            }
+
+            function creaTaula() {
+                var table = $("<table/>");
+                var tr = $("<tr/>")
+
+                //Add headers
+                var th = $("<th/>", {
+                    text: "#"
+                });
+                tr.append(th);
+                for (var i = 0; i <= 3; i++) {
+                    th = $("<th/>", {
+                        text: i
+                    });
+                    tr.append(th);
+                }
+
+                table.append(tr);
+                for (var r = 0; r <= 3; r++) {
+                    tr = $("<tr/>");
+                    var th = $("<th/>", {
+                        text: r
+                    });
+                    tr.append(th);
+                    for (var c = 0; c <= 3; c++) {
+                        l = getLlibre(c, r);
+                        var info;
+                        if (l != false) {
+                            var img = $("<img/>", {
+                                src: l.category + ".png",
+                                width: "50px"
+                            });
+                            var title = $("<p/>", {
+                                text: l.title
+                            });
+                            var pages = $("<p/>", {
+                                text: l.numPages + " pages"
+                            })
+                            td = $("<td/>");
+                            td.append(img, title, pages);
+                        } else {
+                            var img = $("<img/>", {
+                                src: "empty.png",
+                                width: "50px"
+                            });
+                            td = $("<td/>");
+                            td.append(img);
+                        }
+                        tr.append(td);
+                    }
+                    table.append(tr);
+                }
+                $("#printer").html(table);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    TITLE: <input type="text" id="title" /><br/> NUM.PAGES: <input type="text" id="pages" /><br/> CATEGORY:
+    <select id="cats">
+        <option value="CLASSIC">CLASSIC</option>
+        <option value="SCIENCE">SCIENCE</option>
+        <option value="SPORTS">SPORTS</option>
+        <option value="COMEDY">COMEDY</option>
+    </select> <br/> POSITION (COL / ROW):
+    <select id="col">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select> /
+    <select id="row">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select> <br/>
+    <button id="b1">ADD BOOK</button>
+    <button id="b2">REMOVE BOOK</button>
+    <button id="b3">PRINT ALL BOOKS</button>
+    <button id="b4">PRINT LIBRARY</button>
+    <button id="b5">NUM BOOKS</button>
+    <hr/>
+    <div id="printer"></div>
+</body>
+
+</html>
