@@ -1,0 +1,169 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+    <style>
+        .myList {
+            width: 280px;
+            float: left;
+            margin: 10px;
+            background-color: #AFA;
+            padding: 0px 5px;
+            border-radius: 5px;
+        }
+        
+        #d1 {
+            width: 50%;
+            float: left;
+            background-color: #DDD;
+        }
+        
+        #d2 {
+            width: 50%;
+            float: left;
+            background-color: #DDD;
+        }
+        
+        .normalItem {
+            background-color: #AAFFAA;
+        }
+        
+        .redItem {
+            background-color: #FF0000;
+        }
+        
+        .greenItem {
+            background-color: #00FF00;
+        }
+        
+        .blueItem {
+            background-color: #0000FF;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function() {
+            var lists = [];
+            $("#b1").click(function() {
+                var listName = $("#tname").val();
+                var list = $("<div/>", {
+                    class: "mylist",
+                    id: listName,
+                    text: listName
+                });
+                lists.push(list);
+                //$("#lists").append(list);
+                appendLists();
+                selectsLists();
+            });
+
+            $("#b2").click(function() {
+                var selectValue = $("#slist").val();
+                for (list in lists) {
+                    if (list.attr("value") == selectValue) {
+                        var listName = $("#tname").val();
+                        var listDiv = $("<div/>", {
+                            class: "mylist",
+                            id: listName,
+                            text: listName
+                        });
+                        list = listDiv;
+                    }
+                }
+                appendLists();
+                selectsLists();
+            });
+
+            $("#b3").click(function() {
+                lists = [];
+                appendLists();
+                selectsLists();
+            });
+
+            $("#b4").click(function() {
+                var selectValue = $("#slist").val();
+                for (list in lists) {
+                    if (list.attr("value") == selectValue) {
+                        var listName = $("#tname").val();
+                        var listDiv = $("<div/>", {
+                            class: "mylist",
+                            id: listName,
+                            text: listName
+                        });
+                        list = listDiv;
+                    }
+                }
+                appendLists();
+                selectsLists();
+            });
+
+            function appendLists() {
+                var listsToAdd;
+                for (list in lists) {
+                    listsToAdd.append(list);
+                }
+                $("#lists").html(listsToAdd);
+            }
+
+            function selectsLists() {
+                var listsToAdd;
+                for (list in lists) {
+                    var listSelect = $("<select/>", {
+                        class: "mylist",
+                        id: list.attr("id"),
+                        value: list.attr("id")
+                    });
+                    listsToAdd.append(listSelect);
+                }
+                $("#slist").html(listsToAdd);
+            }
+        });
+    </script>
+    <h1>LIST MANAGER</h1>
+    <div id="d1">
+        <form action="#">
+            <fieldset>
+                <legend>LIST</legend>
+                <b>LIST: </b><select id="slist"></select>
+                <b>NAME: </b><input type="text" id="tname" value="" size="10" />
+                <br/><br/>
+                <button id="b1">ADD</button>
+                <button id="b2">EDIT</button>
+                <button id="b3">EMPTY LIST</button>
+                <button id="b4">REMOVE</button>
+            </fieldset>
+        </form>
+    </div>
+    <div id="d2">
+        <form action="#">
+            <fieldset>
+                <legend>LIST ITEMS</legend>
+                <b>ITEM: </b><select id="sitems"></select>
+                <b>TEXT: </b><input type="text" id="titem" value="" size="10" />
+                <b>STYLE: </b><select id="sstyle">
+<option value="normalItem">NORMAL</option>
+<option value="redItem">RED</option>
+<option value="greenItem">GREEN</option>
+<option value="blueItem">BLUE</option>
+</select>
+                <br/><br/>
+                <button id="b5">APPEND</button>
+                <button id="b6">PREPEND</button>
+                <button id="b7">EDIT</button>
+                <button id="b8">REMOVE</button>
+            </fieldset>
+        </form>
+    </div>
+    <hr/>
+    <div id="lists">
+    </div>
+</body>
+
+</html>

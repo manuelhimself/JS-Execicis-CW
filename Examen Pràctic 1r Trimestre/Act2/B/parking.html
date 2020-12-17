@@ -1,16 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Document</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <title>Select JSON</title>
     <style>
         .red {
             background-color: red;
@@ -23,37 +22,23 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Select JSON</h1>
-        <form>
-            <div class="form-group">
-                <select id="meuSelect" class="form-control">
-              <option value="0">Selecciona</option>
-            </select>
-            </div>
-        </form>
-        <br/>
-        <h4>Contingut del fitxer JSON:</h4>
-        <p id="demo"></p>
-    </div>
+    <h2>parking</h2>
 
+    <ul id="demo"></ul>
     <script>
         $(document).ready(function() {
-
-
             function loadCotxes() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        $("#demo").html(this.responseText);
                         var cotxes = JSON.parse(this.responseText);
                         for (c in cotxes) {
-                            var matricula = cotxes[c].matricula;
+                            var matricula = cotxes[c].plate_number;
                             var price = cotxes[c].price;
                             var minutes = cotxes[c].minutes;
                             var tsIn = cotxes[c].timestamp_in;
                             var tsOut = cotxes[c].timestamp_out;
-                            var class2add = "green";
+                            var class2add = null;
                             if (price < 5.10) {
                                 class2add = "red";
                             }
@@ -61,11 +46,11 @@
                                 text: matricula + ":  Time Entry: " + tsIn + " Time Out: " + tsOut + " Minutes: " + minutes + " Price: " + price,
                                 class: class2add
                             });
-                            $("#meuSelect").append(item);
+                            $("#demo").append(item);
                         }
                     }
                 };
-                xhttp.open("GET", "cotxes.php", true);
+                xhttp.open("GET", "parking.json", true);
                 xhttp.send();
             }
 

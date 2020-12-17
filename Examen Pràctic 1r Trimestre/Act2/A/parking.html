@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+    <script src="cotxe.js"></script>
+    <style>
+        td,
+        th {
+            text-align: center;
+            border: 1px solid black;
+        }
+        
+        #taula {
+            width: 50%;
+            float: left;
+        }
+        
+        #historial {
+            height: 400px;
+            margin: 0px 0px 0px 450px;
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        var arrCotxes = [];
+
+        $(document).ready(function() {
+            creaTaula();
+            $("#b1").click(function() {
+
+                var m = $("#t1").val();
+                var col = $("#s1").val().substring(0, 1);
+                var row = $("#s1").val().substring(1);
+
+                var c;
+
+                var ocupat = false;
+
+                for (var i = 0; i < arrCotxes.length; i++) {
+                    if (arrCotxes[i].col == col && arrCotxes[i].row == row) {
+                        ocupat = true;
+                        break;
+                    }
+                }
+
+                if (!ocupat) {
+                    c = new cotxe(m, col, row);
+                    arrCotxes.push(c);
+                } else {
+                    alert("Posició ocupada");
+                }
+                creaTaula();
+                var li = $("<li/>", {
+                    text: "Car " + c.matricula + " has been parked at " + $("#s1 option:selected").text() + " at " + new Date().getUTCHours() + ":" + new Date().getUTCMinutes() + ":" + new Date().getUTCSeconds()
+                })
+
+                $("#ulHist").append(li);
+            });
+
+            $("#b2").click(function() {
+                var col = $("#s1").val().substring(0, 1);
+                var row = $("#s1").val().substring(1);
+                var c;
+                for (var i = 0; i < arrCotxes.length; i++) {
+                    if (arrCotxes[i].col == col && arrCotxes[i].row == row) {
+                        c = arrCotxes[i];
+                        arrCotxes.splice(i, 1);
+                        var li = $("<li/>", {
+                            text: "Car " + c.matricula + " has been parked at " + $("#s1 option:selected").text() + " at " + new Date().getUTCHours() + ":" + new Date().getUTCMinutes() + ":" + new Date().getUTCSeconds()
+                        })
+
+                        $("#ulHist").append(li);
+                        break;
+                    }
+                }
+                creaTaula();
+            });
+
+            $("#b3").click(function() {
+                alert("Hi ha " + arrCotxes.length + " cotxes");
+            });
+
+            $("#b4").click(function() {
+
+            });
+
+            function getCotxe(col, row) {
+                var returnVal = false;
+                for (var i = 0; i < arrCotxes.length; i++) {
+                    var l = arrCotxes[i];
+                    if (l.col == col && l.row == row) {
+                        returnVal = l;
+                        break;
+                    }
+                }
+                return returnVal;
+            }
+
+            function creaTaula() {
+                var table = $("<table/>");
+                var tr = $("<tr/>")
+
+                //Add headers
+                var th = $("<th/>", {
+                    text: "#"
+                });
+                tr.append(th);
+                for (var i = 0; i <= 2; i++) {
+                    var valueLetters;
+                    switch (i) {
+                        case 0:
+                            valueLetters = "A";
+                            break;
+                        case 1:
+                            valueLetters = "B";
+                            break;
+                        case 2:
+                            valueLetters = "C";
+                            break;
+                        default:
+                            break;
+                    }
+                    th = $("<th/>", {
+                        text: valueLetters
+                    });
+                    tr.append(th);
+                }
+
+                table.append(tr);
+                for (var r = 0; r <= 2; r++) {
+                    tr = $("<tr/>");
+                    var th = $("<th/>", {
+                        text: r
+                    });
+                    tr.append(th);
+                    for (var c = 0; c <= 2; c++) {
+                        l = getCotxe(c, r);
+                        var info;
+                        if (l != false) {
+                            var img = $("<img/>", {
+                                src: "car.png",
+                                width: "50px"
+                            });
+                            var matricula = $("<p/>", {
+                                text: l.matricula
+                            });
+                            td = $("<td/>");
+                            td.append(img, matricula);
+                        } else {
+                            var img = $("<img/>", {
+                                src: "empty.png",
+                                width: "50px"
+                            });
+                            td = $("<td/>");
+                            td.append(img);
+                        }
+                        tr.append(td);
+                    }
+                    table.append(tr);
+                }
+                $("#taula").html(table);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <h1>PARKING</h1>
+    <form action="#" style="background-color:#AAAAAA;">
+        <fieldset>
+            <legend>Parking Admininstration</legend>
+            <b>PLATE NUMBER:</b> <input type="text" id="t1" value="" size="5" />
+            <b>PARKING PLACE:</b>
+            <select id="s1">
+                <option value="00">A0</option>
+                <option value="01">A1</option>
+                <option value="02">A2</option>
+                <option value="10">B0</option>
+                <option value="11">B1</option>
+                <option value="12">B2</option>
+                <option value="20">C0</option>
+                <option value="21">C1</option>
+                <option value="22">C2</option>
+            </select>
+            <button id="b1">PARK IN</button>
+            <button id="b2">PARK OUT</button>
+            <button id="b3">NUM CARS</button>
+            <button id="b4">SORT</button>
+        </fieldset>
+    </form>
+    <hr/>
+    <div id="taula">
+    </div>
+    <div id="historial">
+        <h1>Historial</h1>
+        <ul id="ulHist">
+
+        </ul>
+    </div>
+</body>
+
+</html>
