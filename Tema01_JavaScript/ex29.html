@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        var myWindow;
+
+        function openWin() {
+            myWindow = window.open("", "_blank", "width=600, height=300");
+            myWindow.document.write('<input type="button" value="Close Window" onClick="opener.closeWin()">');
+        }
+
+        function closeWin() {
+            myWindow.close();
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Open Window" onClick="openWin()">
+</body>
+
+</html>

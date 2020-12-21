@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function show() {
+            var usr = document.getElementById("text").value;
+            var email = document.getElementById("email").value;
+            var comnt = document.getElementById("textarea").value;
+
+            alert("user: " + usr + "\nemail: " + email + "\ncomment: " + comnt);
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        User: <input type="text" id="text">
+        <br>
+        Email: <input type="email" id="email">
+        <br>
+        Comments: <br><textarea id="textarea" rows="10" cols="50" ></textarea>
+        <br>
+        <input type="button" value="show" onclick="show()">
+    </form>
+</body>
+
+</html>

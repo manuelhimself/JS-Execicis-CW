@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function enterPerm() {
+            var text = "";
+            if (document.getElementById('check1').checked) {
+                text += "You can enter ";
+            } else {
+                text += "You can't enter"
+            }
+            
+            alert(text);
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="radio" id="check1" name="rad" >Older than 18
+        <br>
+        <input type="radio" id="check2" name="rad">Younger than 18
+        <br>
+        <input type="button" value="show" onclick="enterPerm()">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function paint(thing, col) {
+
+            thing.bgColor = col;
+        }
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Nom</th>
+            <th>Llinatge</th>
+        </tr>
+        <tr onMouseOver="paint(this,'#ccf6c8')" onMouseOut="paint(this,'#ffffff')">
+            <td>0</td>
+            <td>Marc</td>
+            <td>Julia</td>
+        </tr>
+        <tr onMouseOver="paint(this,'#fafcc2')" onMouseOut="paint(this,'#ffffff')">
+            <td>1</td>
+            <td>Joan</td>
+            <td>Servera</td>
+        </tr>
+        <tr onMouseOver="paint(this,'#f6d6ad')" onMouseOut="paint(this,'#ffffff')">
+            <td>2</td>
+            <td>David Christian</td>
+            <td>Sanso</td>
+        </tr>
+    </table>
+</body>
+
+</html>

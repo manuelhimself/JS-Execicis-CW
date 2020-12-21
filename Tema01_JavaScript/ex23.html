@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function showSports() {
+            var text = "";
+            if (document.getElementById('check1').checked) {
+                text += "Football ";
+            }
+            if (document.getElementById('check2').checked) {
+                text += " Tennis ";
+            }
+            if (document.getElementById('check3').checked) {
+                text += " Karate ";
+            }
+            alert(text);
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="checkbox" id="check1">Football
+        <br>
+        <input type="checkbox" id="check2">Tennis
+        <br>
+        <input type="checkbox" id="check3">Karate
+        <br>
+        <input type="button" value="show" onclick="showSports()">
+    </form>
+</body>
+
+</html>

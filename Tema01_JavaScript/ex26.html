@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function check() {
+            var pswd = document.getElementById("pwd").value.length;
+            if (pswd < 7 || pswd > 20) {
+                alert("invalid password");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Password: <input type="password" id="pwd" name="pwd" onblur="check()">
+    </form>
+</body>
+
+</html>
